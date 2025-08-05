@@ -1,0 +1,15 @@
+__pycache__/
+*.pkl
+*.npy
+*.faiss
+*.bin
+*.pt
+.venv/
+*.zip
+*.tar
+*.gz
+.ipynb_checkpoints/
+datasets/
+cache/
+*.log
+.git/
