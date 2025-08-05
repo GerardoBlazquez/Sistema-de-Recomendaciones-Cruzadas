@@ -1,0 +1,10 @@
+flask
+flask-cors
+gunicorn
+sentence-transformers
+faiss-cpu
+pandas
+numpy
+requests
+rapidfuzz
+unidecode

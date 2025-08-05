@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: recomendador-crossmedia
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn main_web:app
+    envVars:
+      - key: TMDB_API_KEY
+        value: your_tmdb_api_key_here
+      - key: GOOGLE_API_KEY
+        value: your_google_books_api_key_here
+      - key: RAWG_API_KEY
+        value: your_rawg_api_key_here

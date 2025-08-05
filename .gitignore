@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.pkl
+*.index
+*.csv
+request.py
+.git/
+model_cache/
+.env
