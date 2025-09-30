@@ -127,7 +127,9 @@ Genera recomendaciones cruzadas de medios.
 
 **Ejemplo con `curl`:**
 ```bash
-curl -X POST http://127.0.0.1:5000/recomendar      -H "Content-Type: application/json"      -d '{"query": "El señor de los anillos", "tipo_origen": "pelicula", "tipo_destino": "todos"}'
+curl -X POST http://127.0.0.1:5000/recomendar
+-H "Content-Type: application/json"
+-d '{"query": "El señor de los anillos", "tipo_origen": "pelicula", "tipo_destino": "todos"}'
 ```
 
 **Respuesta (ejemplo simplificado):**
