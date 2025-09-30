@@ -66,7 +66,6 @@ python "request.py"
 ### Rellenar los datos con el título a elegir y dar a enter una vez estén todos rellenados, el sistema te mostrará las recomendaciones
 <img width="1448" height="811" alt="Captura de pantalla 2025-09-30 221737" src="https://github.com/user-attachments/assets/b9ab7a64-6026-478b-a6e1-15d9e767b46e" />
 
-
 ---
 
 ## ⚙️ Requisitos previos
@@ -104,9 +103,9 @@ El servidor quedará disponible en:
 
 ---
 
-## 📡 API Flask – Endpoints
+## 🔷 API Flask – Endpoints
 
-### 🔷 `POST /recomendar`
+###  `POST /recomendar`
 
 Genera recomendaciones cruzadas de medios.
 
