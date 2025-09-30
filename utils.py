@@ -40,7 +40,7 @@ def parsear_generos(generos_raw, mapear=mapear_genero):
                 return [mapear(str(g)) for g in generos_raw if g]
         return []
     except Exception as e:
-        print(f"⚠️ Error parseando géneros: {e}")
+        print(f"Error parseando géneros: {e}")
         return []
 
 
