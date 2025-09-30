@@ -45,7 +45,7 @@ recomendador-local/
 ├── utils/                        # Funciones auxiliares (procesamiento, filtros, etc.)
 └── README.md
 ```
-📂 La versión **local.py** contiene todo el bloque seguido, listo para usar
+📂 ### La versión **local.py** contiene todo el bloque seguido, listo para usar
 
 Para ejecutar usar:
 
