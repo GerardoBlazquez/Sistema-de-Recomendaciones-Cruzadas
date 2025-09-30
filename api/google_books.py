@@ -56,7 +56,7 @@ def buscar_libro_google(title):
                 return extraer_info_libro(info)
 
     except Exception as e:
-        print(f"❌ Error al buscar libro: {e}")
+        print(f"Error al buscar libro: {e}")
 
     return None
 
@@ -73,7 +73,7 @@ def buscar_libros_por_genero_google(genero, cantidad=10):
 
     r = requests.get(url, params=params)
     if r.status_code != 200:
-        print("❌ Error al hacer la búsqueda en Google Books.")
+        print("Error al hacer la búsqueda en Google Books.")
         return []
 
     items = r.json().get("items", [])
@@ -97,7 +97,7 @@ def buscar_libros_por_genero_google(genero, cantidad=10):
 
         # Si no hay géneros, incluye el libro igual con advertencia
         if not generos:
-            print(f"⚠️ Libro sin géneros definidos: {titulo}, incluyendo de todas formas.")
+            print(f"Libro sin géneros definidos: {titulo}, incluyendo de todas formas.")
             generos = [genero.lower()]
         else:
             # Filtrar libros que tengan el género deseado
