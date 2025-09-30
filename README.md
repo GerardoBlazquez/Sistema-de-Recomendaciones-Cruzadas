@@ -46,6 +46,7 @@ recomendador-local/
 └── README.md
 ```
 📂 La versión local.py contiene todo el bloque seguido, listo para usar
+
 ---
 
 ## ⚙️ Requisitos previos
