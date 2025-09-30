@@ -153,7 +153,6 @@ PALABRAS_CLAVE_ESPECIAL = {
         "iron man", "the avengers", "captain america: the first avenger", "thor", "guardians of the galaxy",
         "black panther", "doctor strange", "spider-man: homecoming", "avengers: infinity war",
         "avengers: endgame",
-        # Agrega más títulos si deseas
     ],
 
     "harry_potter": [
@@ -389,7 +388,6 @@ PALABRAS_CLAVE_ESPECIAL = {
         "pet sematary", "cementerio de animales", "resurrección", "terror",
         "horror", "stephen king"
     ]
-    # Puedes añadir tantas sagas/franquicias como desees siguiendo este modelo
 
 }
 
@@ -515,16 +513,14 @@ COMBINACIONES_PROHIBIDAS = [
     {"terror", "animación"},
     {"thriller", "animation"},
     {"thriller", "familiar"},
-   
-    # Más combinaciones coherentes a evitar:
     {"comedy", "war"},
-    {"comedy", "crime"},         # Comedia muy ligera y crimen serio difícil de mezclar
+    {"comedy", "crime"},        
     {"romance", "horror"},
-    {"romance", "thriller"},     # Romance y thriller pueden ser conflictivos para recomendación general
+    {"romance", "thriller"},     
     {"romance", "terror"},
-    {"children", "horror"},      # Infantil y terror son incompatibles en general
+    {"children", "horror"},      
     {"children", "thriller"},
-    {"documentary", "fantasy"}, # Documental y fantasía no suelen mezclarse
+    {"documentary", "fantasy"}, 
     {"documentary", "superhero"},
     {"superhero", "documentary"},
     {"sports", "horror"},
