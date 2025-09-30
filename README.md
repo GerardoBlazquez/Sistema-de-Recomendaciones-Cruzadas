@@ -7,7 +7,7 @@ Fue desarrollado como parte de un **portfolio personal** y combina técnicas mod
 
 ---
 
-## 🚀 Tecnologías utilizadas
+## 🔷 Tecnologías utilizadas
 
 - **Python 3.8+**
 - **Flask** (API REST)
@@ -23,7 +23,7 @@ Fue desarrollado como parte de un **portfolio personal** y combina técnicas mod
 
 ---
 
-## 🎯 Funcionalidades principales
+## 🔷 Funcionalidades principales
 
 - **Recomendaciones cruzadas** entre distintos tipos de medios (ej: buscar una película y recibir series, libros y videojuegos relacionados).  
 - **Procesamiento de texto y embeddings** con `sentence-transformers`.  
@@ -34,7 +34,7 @@ Fue desarrollado como parte de un **portfolio personal** y combina técnicas mod
 
 ---
 
-## 📂 Estructura del proyecto
+## 🔷 Estructura del proyecto
 
 ```
 recomendador-local/
@@ -45,7 +45,7 @@ recomendador-local/
 ├── utils/                        # Funciones auxiliares (procesamiento, filtros, etc.)
 └── README.md
 ```
-
+📂 La versión local.py contiene todo el bloque seguido, listo para usar
 ---
 
 ## ⚙️ Requisitos previos
@@ -56,7 +56,7 @@ recomendador-local/
 
 ---
 
-## 🖥️ Instalación y uso
+## 🔷 Instalación y uso
 
 ```bash
 # Clonar el repositorio
@@ -79,13 +79,13 @@ python main.py
 ```
 
 El servidor quedará disponible en:  
-👉 `http://127.0.0.1:5000`
+ `http://127.0.0.1:5000`
 
 ---
 
 ## 📡 API Flask – Endpoints
 
-### 🔍 `POST /recomendar`
+### 🔷 `POST /recomendar`
 
 Genera recomendaciones cruzadas de medios.
 
@@ -136,10 +136,11 @@ curl -X POST http://127.0.0.1:5000/recomendar      -H "Content-Type: application
 
 ---
 
-## 📊 Evaluación de calidad
+## 🔷 Evaluación de calidad
 
 ### En pruebas internas:  
 Categoría Criterio de evaluación Nº de casos Porcentaje
+
 🟢 Buenas Más del 70% de recomendaciones coherentes 182 **86,26%**
 
 🟡 Regulares Entre 30% y 70% de recomendaciones coherentes 23 **10,90%**
@@ -150,7 +151,7 @@ Esto valida la **robustez del sistema semántico**, aunque aún hay margen de me
 
 ---
 
-## 🔮 Posibles mejoras futuras
+## 🔷 Posibles mejoras futuras
 
 - Base de datos persistente (MongoDB, PostgreSQL).  
 - Frontend visual interactivo (Astro + TailwindCSS + React).  
@@ -161,7 +162,7 @@ Esto valida la **robustez del sistema semántico**, aunque aún hay margen de me
 
 ---
 
-## 👤 Autor
+## 🔷 Autor
 
 **Tu Nombre**  
 📌 [LinkedIn](#)  
