@@ -34,7 +34,7 @@ def obtener_info_pelicula_tmdb(titulo):
                     match, score, idx = match_result
 
                     if score < 65:
-                        print(f"❌ Coincidencia baja con TMDb: '{match}' ({score}%)")
+                        print(f"Coincidencia baja con TMDb: '{match}' ({score}%)")
                         return _respuesta_vacia(titulo)
 
                     movie = data_search[idx]
@@ -76,11 +76,11 @@ def obtener_info_pelicula_tmdb(titulo):
                         }
 
         # Si no hay respuesta válida
-        print(f"⚠️ No se encontraron datos válidos para '{titulo}' en TMDb.")
+        print(f"No se encontraron datos válidos para '{titulo}' en TMDb.")
         return _respuesta_vacia(titulo)
 
     except Exception as e:
-        print(f"❌ Excepción en obtener_info_pelicula_tmdb('{titulo}'): {e}")
+        print(f"Excepción en obtener_info_pelicula_tmdb('{titulo}'): {e}")
         traceback.print_exc()
         return _respuesta_vacia(titulo)
 
@@ -124,7 +124,7 @@ def buscar_peliculas_por_genero_tmdb(genero, cantidad=10):
 
     r_generos = requests.get(url_generos, params=params_generos)
     if r_generos.status_code != 200:
-        print("❌ No se pudo obtener la lista de géneros de TMDb.")
+        print("No se pudo obtener la lista de géneros de TMDb.")
         return []
 
     generos_data = r_generos.json().get("genres", [])
@@ -132,7 +132,7 @@ def buscar_peliculas_por_genero_tmdb(genero, cantidad=10):
     genero_id = GENERO_TMDB_IDS.get(genero.lower())
    
     if not genero_id:
-        print(f"❌ Género '{genero}' no reconocido en TMDb.")
+        print(f"Género '{genero}' no reconocido en TMDb.")
         return []
 
     # Paso 2: Buscar películas del género, ordenadas por puntuación (con un mínimo de votos)
@@ -149,7 +149,7 @@ def buscar_peliculas_por_genero_tmdb(genero, cantidad=10):
 
     r_discover = requests.get(url_discover, params=params_discover)
     if r_discover.status_code != 200:
-        print("❌ Error al hacer la búsqueda en TMDb.")
+        print("Error al hacer la búsqueda en TMDb.")
         return []
 
     peliculas_raw = r_discover.json().get("results", [])[:cantidad]
@@ -159,7 +159,7 @@ def buscar_peliculas_por_genero_tmdb(genero, cantidad=10):
         try:
             titulo = p.get("title")
             if not titulo or str(titulo).strip().lower() == 'nan':
-                print(f"⚠️ Título inválido: '{titulo}'")
+                print(f"Título inválido: '{titulo}'")
                 continue
 
             detalles = obtener_info_pelicula_tmdb(titulo)  # Usas tu función ya existente
@@ -168,7 +168,7 @@ def buscar_peliculas_por_genero_tmdb(genero, cantidad=10):
                 if len(resultados) >= cantidad:
                     break
         except Exception as e:
-            print(f"⚠️ Error procesando película: {e}")
+            print(f"Error procesando película: {e}")
             continue
 
     return resultados
@@ -194,7 +194,7 @@ def obtener_info_serie_tmdb(titulo):
                     match, score, idx = match_result
 
                     if score < 65:
-                        print(f"❌ Coincidencia baja con TMDb (serie): '{match}' ({score}%)")
+                        print(f"Coincidencia baja con TMDb (serie): '{match}' ({score}%)")
                         return _respuesta_vacia(titulo)
 
                     serie = data_search[idx]
@@ -266,11 +266,11 @@ def obtener_info_serie_tmdb(titulo):
                         "temporadas": temporadas
                     }
 
-        print(f"⚠️ No se encontraron datos válidos para serie '{titulo}' en TMDb.")
+        print(f"No se encontraron datos válidos para serie '{titulo}' en TMDb.")
         return _respuesta_vacia(titulo)
 
     except Exception as e:
-        print(f"❌ Excepción en obtener_info_serie_tmdb('{titulo}'): {e}")
+        print(f"Excepción en obtener_info_serie_tmdb('{titulo}'): {e}")
         traceback.print_exc()
         return _respuesta_vacia(titulo)
 
@@ -298,7 +298,7 @@ def buscar_series_por_genero_tmdb(genero, cantidad=10):
 
     genero_id = GENERO_TMDB_IDS.get(genero.lower())
     if not genero_id:
-        print(f"❌ Género '{genero}' no reconocido en TMDb para series.")
+        print(f"Género '{genero}' no reconocido en TMDb para series.")
         return []
 
     url_generos = "https://api.themoviedb.org/3/genre/tv/list"
@@ -309,7 +309,7 @@ def buscar_series_por_genero_tmdb(genero, cantidad=10):
 
     r_generos = requests.get(url_generos, params=params_generos)
     if r_generos.status_code != 200:
-        print("❌ No se pudo obtener la lista de géneros de series de TMDb.")
+        print("No se pudo obtener la lista de géneros de series de TMDb.")
         return []
 
     generos_data = r_generos.json().get("genres", [])
@@ -327,7 +327,7 @@ def buscar_series_por_genero_tmdb(genero, cantidad=10):
 
     r_discover = requests.get(url_discover, params=params_discover)
     if r_discover.status_code != 200:
-        print("❌ Error al hacer la búsqueda de series en TMDb.")
+        print("Error al hacer la búsqueda de series en TMDb.")
         return []
 
     series_raw = r_discover.json().get("results", [])[:cantidad]
@@ -337,7 +337,7 @@ def buscar_series_por_genero_tmdb(genero, cantidad=10):
         try:
             titulo = s.get("name")
             if not titulo or str(titulo).strip().lower() == 'nan':
-                print(f"⚠️ Título inválido: '{titulo}'")
+                print(f"Título inválido: '{titulo}'")
                 continue
 
             detalles = obtener_info_serie_tmdb(titulo)
@@ -346,7 +346,7 @@ def buscar_series_por_genero_tmdb(genero, cantidad=10):
                 if len(resultados) >= cantidad:
                     break
         except Exception as e:
-            print(f"⚠️ Error procesando serie: {e}")
+            print(f"Error procesando serie: {e}")
             continue
 
     return resultados
