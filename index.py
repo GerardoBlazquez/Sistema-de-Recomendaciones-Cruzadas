@@ -11,14 +11,14 @@ from rapidfuzz import fuzz
 from unidecode import unidecode
 import threading
 
-DATASET_FILE = "dataset_fusionado_final_7.csv"
+DATASET_FILE = "dataset_fusionado_final_8.csv"
 DATASET_URL = "https://drive.google.com/uc?export=download&id=1brYWtJAP_eU0Ya3jC6hWAgPPjctzHjAU"
 MODEL_NAME = "all-MiniLM-L6-v2"
 
 
 
 if not os.path.exists(DATASET_FILE):
-    print(f"📥 Descargando dataset desde {DATASET_URL}...")
+    print(f"Descargando dataset desde {DATASET_URL}...")
     urllib.request.urlretrieve(DATASET_URL, DATASET_FILE)
 
 
@@ -33,7 +33,7 @@ METADATA_GLOBAL = {}
 # Cargar dataset y modelo
 # ---------------------
 def cargar_dataset():
-    print("📂 Cargando dataset...")
+    print("Cargando dataset...")
     df = pd.read_csv(DATASET_FILE, low_memory=False)
     if "tipo" not in df.columns:
         raise ValueError("El dataset debe tener la columna 'tipo'.")
@@ -51,7 +51,7 @@ df = cargar_dataset()
 def crear_o_cargar_indice(tipo_filtrado):
     tipos_validos = ['pelicula', 'serie', 'libro', 'videojuego']
     if tipo_filtrado not in tipos_validos:
-        print(f"❌ Tipo inválido: '{tipo_filtrado}'. Debe ser uno de {tipos_validos}.")
+        print(f"Tipo inválido: '{tipo_filtrado}'. Debe ser uno de {tipos_validos}.")
         return None, None
 
     index_file = f"{tipo_filtrado}.index"
@@ -59,14 +59,14 @@ def crear_o_cargar_indice(tipo_filtrado):
 
     # Intentar cargar índice y metadatos ya existentes
     if os.path.exists(index_file) and os.path.exists(metadata_file):
-        print(f"✅ Cargando índice FAISS existente para tipo '{tipo_filtrado}'...")
+        print(f"Cargando índice FAISS existente para tipo '{tipo_filtrado}'...")
         try:
             index = faiss.read_index(index_file)
             with open(metadata_file, "rb") as f:
                 media_metadata = pickle.load(f)
             return index, media_metadata
         except Exception as e:
-            print(f"❌ Error al cargar el índice o metadatos: {e}")
+            print(f"Error al cargar el índice o metadatos: {e}")
             return None, None
 
     # Si no existen, crear embeddings y FAISS index
@@ -74,7 +74,7 @@ def crear_o_cargar_indice(tipo_filtrado):
     df_filtrado = df[df["tipo"].str.lower() == tipo_filtrado]
 
     if df_filtrado.empty:
-        print(f"⚠️ No hay datos del tipo '{tipo_filtrado}' en el dataset.")
+        print(f"No hay datos del tipo '{tipo_filtrado}' en el dataset.")
         return None, None
 
     textos = df_filtrado["overview"].fillna("").tolist()
@@ -98,10 +98,10 @@ def crear_o_cargar_indice(tipo_filtrado):
         with open(metadata_file, "wb") as f:
             pickle.dump(media_metadata, f)
 
-        print(f"✅ Índice creado con {len(media_metadata)} elementos.")
+        print(f"Índice creado con {len(media_metadata)} elementos.")
         return index, media_metadata
 
     except Exception as e:
-        print(f"❌ Error al crear índice FAISS: {e}")
+        print(f"Error al crear índice FAISS: {e}")
         return None, None
 
