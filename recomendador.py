@@ -83,7 +83,7 @@ def buscar_recomendaciones(query, tipo_origen="pelicula", tipo_destino="pelicula
 
                         recomendaciones_por_tipo[t] = res
 
-                        print(f"\n✅ Recomendaciones para tipo '{t}':", flush=True)
+                        print(f"\n Recomendaciones para tipo '{t}':", flush=True)
                         for r in res:
                             print(f"- [{r['tipo']}] {r['titulo']} ({r.get('año', 'Año desconocido')})", flush=True)
 
@@ -113,7 +113,7 @@ def buscar_recomendaciones(query, tipo_origen="pelicula", tipo_destino="pelicula
 
     index, media_metadata = get_index_and_metadata(tipo_dest_busqueda)
     if index is None or media_metadata is None:
-        print("❌ No se pudo cargar o crear índice.")
+        print(" No se pudo cargar o crear índice.")
         return []
 
     info = obtener_info_externa_cache(tipo_origen, query)
@@ -121,16 +121,16 @@ def buscar_recomendaciones(query, tipo_origen="pelicula", tipo_destino="pelicula
     generos_busqueda = []
     query_text = query
     if generos_forzados:
-        print(f"🎯 Usando géneros forzados para '{query}': {generos_forzados}")
+        print(f" Usando géneros forzados para '{query}': {generos_forzados}")
         generos_busqueda = generos_forzados
     else:
         if info and isinstance(info, dict):
             if info.get("generos") and isinstance(info["generos"], list):
                 generos_busqueda = [g.lower() for g in info["generos"][:3]]
-                print(f"🎯 Géneros extraídos: {generos_busqueda}")
+                print(f" Géneros extraídos: {generos_busqueda}")
             if info.get("descripcion"):
                 query_text = info["descripcion"]
-                print("📄 Usando descripción para embedding")
+                print(" Usando descripción para embedding")
 
     if genero:
         generos_busqueda.append(mapear_genero(genero))
@@ -138,7 +138,7 @@ def buscar_recomendaciones(query, tipo_origen="pelicula", tipo_destino="pelicula
     generos_busqueda = list(dict.fromkeys([mapear_genero(g) for g in generos_busqueda]))
     if "documentary" in generos_busqueda or tipo_dest_busqueda == "videojuego":
         generos_busqueda = []
-    print(f"🔄 Géneros finales: {generos_busqueda}")
+    print(f" Géneros finales: {generos_busqueda}")
 
     query_emb = model.encode([query_text])
     query_emb = np.array(query_emb).astype("float32")
@@ -219,12 +219,12 @@ def buscar_recomendaciones(query, tipo_origen="pelicula", tipo_destino="pelicula
                         puntuacion_actual = float(item.get("puntuacion") or 0)
                         genero_compartido = bool(set(item_genres) & set(generos_busqueda)) if generos_busqueda else True
                         if not genero_compartido and puntuacion_actual < 5.0:
-                            print(f"⛔ Rechazado por filtro palabras clave y sin género/puntuación suficiente: {titulo}")
+                            print(f" Rechazado por filtro palabras clave y sin género/puntuación suficiente: {titulo}")
                             continue
                         else:
-                            print(f"⚠️ No cumple palabras clave pero pasa por género/puntuación: {titulo}")
+                            print(f" No cumple palabras clave pero pasa por género/puntuación: {titulo}")
             else:
-                print(f"⚠️ Descripción corta o vacía: {titulo}")
+                print(f" Descripción corta o vacía: {titulo}")
 
         if any(prohibido.issubset(item_genres_set) for prohibido in COMBINACIONES_PROHIBIDAS):
             continue

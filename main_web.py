@@ -34,7 +34,7 @@ def healthcheck():
 @app.route("/recomendar", methods=["POST"])
 def recomendar():
     data = request.json
-    # Los nombres de campos deben coincidir con los esperados internamente
+   
     query = data.get("query") or data.get("titulo")   # Soporta ambos posibles nombres
     tipo_origen = data.get("tipo_origen", "pelicula").lower()
     tipo_destino = data.get("tipo_destino", "pelicula")  # Puede ser lista o string, se maneja en recomendador
