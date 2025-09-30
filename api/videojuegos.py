@@ -24,7 +24,7 @@ def buscar_videojuego_rawg(title):
             match, score, idx = process.extractOne(title, nombres)
 
             if score < 65:
-                print(f"❌ Coincidencia baja con RAWG: '{match}' ({score}%)")
+                print(f"Coincidencia baja con RAWG: '{match}' ({score}%)")
                 return None
 
             game = resultados[idx]
@@ -48,7 +48,7 @@ def buscar_videojuego_rawg(title):
                 "generos": generos
             }
     except Exception as e:
-        print(f"❌ Error RAWG: {e}")
+        print(f"Error RAWG: {e}")
 
     return None
 
@@ -78,7 +78,7 @@ def obtener_generos_rawg():
 def buscar_videojuegos_por_genero_rawg(genero, cantidad=10):
     generos_rawg = obtener_generos_rawg()
     if genero not in generos_rawg:
-        print(f"⚠️ Género RAWG desconocido: {genero}")
+        print(f"Género RAWG desconocido: {genero}")
         return []
 
     resultados = []
@@ -101,7 +101,7 @@ def buscar_videojuegos_por_genero_rawg(genero, cantidad=10):
             if len(resultados) >= cantidad:
                 break
     except Exception as e:
-        print(f"❌ Error al obtener juegos por género RAWG: {e}")
+        print(f"Error al obtener juegos por género RAWG: {e}")
 
     return resultados
 
