@@ -3,7 +3,7 @@
 Este proyecto implementa un **sistema de recomendación semántica** que integra datos de **películas, series, libros y videojuegos**.  
 Fue desarrollado como parte de un **portfolio personal** y combina técnicas modernas de **NLP, embeddings y búsqueda semántica** con **índices FAISS** para ofrecer recomendaciones cruzadas de medios.
 
-En la rama **"main"** se encuentra la versión local y en la **"master"** un prototipo de una futura versión web. 
+### En la rama **"main"** se encuentra la versión local y en la **"master"** un prototipo de una futura versión web. 
 En la versión final se rediseñó la lógica y estructura para cumplir con las condiciones de la versión gratuíta de Render, sin la librería **sentences-transform**.
 
 
