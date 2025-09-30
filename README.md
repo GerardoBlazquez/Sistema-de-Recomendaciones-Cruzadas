@@ -40,14 +40,50 @@ En la versión final se rediseñó la lógica y estructura para cumplir con las 
 
 ## 🔷 Estructura del proyecto
 
+### Versión local 
+```
+├── main_web.py                   # Script principal (Flask API + recomendador)
+├── requirements.py               # Ejecutor del código
+├── dataset_fusionado_final_8.csv # Dataset base
+├── Readme
+```
+
+### Versión Web (Prototipo)
+
 ```
 recomendador-local/
-├── main.py                       # Script principal (Flask API + recomendador)
+├── api/
+│   │   ├── __init__.py
+│   │   ├── google_books.py
+│   │   ├── tmdb.py
+│   │   ├── videojuegos.py
+├── main_web.py                   # Script principal (Flask API + recomendador)
 ├── requirements.txt              # Dependencias necesarias
-├── dataset_fusionado_final_7.csv # Dataset base
-├── modelos/                      # Modelos pesados / índices FAISS (excluidos del repo)
-├── utils/                        # Funciones auxiliares (procesamiento, filtros, etc.)
-└── README.md
+├── dataset_fusionado_final_8.csv # Dataset base
+├── modelos/                      # Modelos pesados / índices FAISS
+│   ├── libro.index
+│   ├── libro_metadata.pkl
+│   ├── pelicula.index
+│   ├── pelicula_metadata.pkl
+│   ├── serie.index
+│   ├── serie_metadata.pkl
+│   ├── videojuego.index
+│   ├── videojuego_metadata.pkl
+├── utils/                        # Funciones auxiliares
+│   ├── cache.py
+│   ├── constantes.py
+│   ├── recomendador.py
+│   ├── scoring.py
+│   ├── utils.py
+│   ├── validacion.py
+├── config/                       # Archivos de configuración / despliegue
+│   ├── .dockerignore
+│   ├── .env.example
+│   ├── .gitignore
+│   ├── .railwayignore
+│   ├── Procfile
+│   ├── render.yaml
+     
 ```
 📂 ### La versión **local.py** contiene todo el bloque seguido, listo para usar
 
