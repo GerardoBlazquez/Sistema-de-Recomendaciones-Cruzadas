@@ -173,6 +173,7 @@ Categoría Criterio de evaluación Nº de casos Porcentaje
 
 🔴 Malas Menos del 30% de recomendaciones coherentes 6 -> **2,84%**
 
+
 > Esto valida la **robustez del sistema semántico**, aunque aún hay margen de mejora en enriquecimiento de metadatos.
 
 ---
