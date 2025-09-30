@@ -21,7 +21,7 @@ def obtener_info_externa_cache(tipo, titulo):
         else:
             result = None
     except Exception as e:
-        print(f"❌ Error API externa [{tipo}]: '{titulo}': {e}")
+        print(f"Error API externa [{tipo}]: '{titulo}': {e}")
         traceback.print_exc()
         result = None
     api_cache[key] = result
