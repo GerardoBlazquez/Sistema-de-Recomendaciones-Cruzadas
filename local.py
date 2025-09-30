@@ -23,9 +23,9 @@ import concurrent.futures
 DATASET_FILE = "dataset_fusionado_final_8.csv"
 MODEL_NAME = "all-MiniLM-L6-v2"
 
-TMDB_API_KEY = "a496cd43bc153ab960d5641ec2aeb8d9"
-GOOGLE_API_KEY = "AIzaSyDwcfEWDu7GYwCFhozXqNz-ls5IltSF6x8"
-RAWG_API_KEY = "c257c40e230e41d8ac54cdbfff16bffd"
+TMDB_API_KEY = "Tu APIkey"
+GOOGLE_API_KEY = "Tu APIkey"
+RAWG_API_KEY = "Tu APIkey"
 POSTER_BASE_URL = "https://image.tmdb.org/t/p/w500"
 
 # Variables globales para índice/metadata cargada una única vez
