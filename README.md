@@ -85,7 +85,7 @@ recomendador-local/
 │   ├── render.yaml
      
 ```
-📂  ### La versión **local.py** contiene todo el bloque seguido, listo para usar
+## 📂 La versión **local.py** contiene todo el bloque seguido, listo para usar
 
 ### Para ejecutar usar:
 
