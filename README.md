@@ -3,7 +3,7 @@
 Este proyecto implementa un **sistema de recomendación semántica** que integra datos de **películas, series, libros y videojuegos**.  
 Fue desarrollado como parte de un **portfolio personal** y combina técnicas modernas de **NLP, embeddings y búsqueda semántica** con **índices FAISS** para ofrecer recomendaciones cruzadas de medios.
 
-> La versión desplegada en servidor, con API pública y frontend interactivo, se encuentra en desarrollo privado. Disponible bajo solicitud profesional.
+> La versión desplegada en servidor, con API pública y frontend interactivo, se encuentra en desarrollo privado. Para poder usarla visitr mi portfolio.  [gcodev.es](https://gcodev.es/)  
 
 ---
 
@@ -47,7 +47,7 @@ recomendador-local/
 ```
 📂 ### La versión **local.py** contiene todo el bloque seguido, listo para usar
 
-Para ejecutar usar:
+### Para ejecutar usar:
 
 ```
 python "local.py"
@@ -56,7 +56,7 @@ python "local.py"
 
 
 
-A continuación abrir otra terminal y ejecutar:
+### A continuación abrir otra terminal y ejecutar:
 
 ```
 python "request.py"
