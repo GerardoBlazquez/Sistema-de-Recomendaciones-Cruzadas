@@ -1,1 +1,167 @@
-# dataset
+# Sistema de Recomendaciones Multimodal (Versión Local + API Flask)
+
+Este proyecto implementa un **sistema de recomendación semántica** que integra datos de **películas, series, libros y videojuegos**.  
+Fue desarrollado como parte de un **portfolio personal** y combina técnicas modernas de **NLP, embeddings y búsqueda semántica** con **índices FAISS** para ofrecer recomendaciones cruzadas de medios.
+
+> La versión desplegada en servidor, con API pública y frontend interactivo, se encuentra en desarrollo privado. Disponible bajo solicitud profesional.
+
+---
+
+## 🚀 Tecnologías utilizadas
+
+- **Python 3.8+**
+- **Flask** (API REST)
+- **Pandas / NumPy**
+- **Sentence-Transformers** (embeddings semánticos)
+- **FAISS** (búsqueda vectorial eficiente)
+- **RapidFuzz** (coincidencia difusa de títulos)
+- **Requests** (integración con APIs externas)
+- **APIs externas**:
+  - [TMDb](https://www.themoviedb.org/) → Películas y series  
+  - [Google Books](https://developers.google.com/books) → Libros  
+  - [RAWG](https://rawg.io/apidocs) → Videojuegos  
+
+---
+
+## 🎯 Funcionalidades principales
+
+- **Recomendaciones cruzadas** entre distintos tipos de medios (ej: buscar una película y recibir series, libros y videojuegos relacionados).  
+- **Procesamiento de texto y embeddings** con `sentence-transformers`.  
+- **Índices FAISS** optimizados para cada tipo de contenido.  
+- **Enriquecimiento dinámico de datos** mediante APIs externas (títulos, descripciones, géneros, pósters, etc.).  
+- **Filtros avanzados** por género y exclusión de combinaciones incoherentes (ej. `terror + infantil`).  
+- **API REST lista para integrar en frontends** (ejemplo: Astro + React + Tailwind).  
+
+---
+
+## 📂 Estructura del proyecto
+
+```
+recomendador-local/
+├── main.py                       # Script principal (Flask API + recomendador)
+├── requirements.txt              # Dependencias necesarias
+├── dataset_fusionado_final_7.csv # Dataset base
+├── modelos/                      # Modelos pesados / índices FAISS (excluidos del repo)
+├── utils/                        # Funciones auxiliares (procesamiento, filtros, etc.)
+└── README.md
+```
+
+---
+
+## ⚙️ Requisitos previos
+
+- Python **3.8 o superior**
+- pip (gestor de paquetes)
+- Recomendado: entorno virtual (`venv`)
+
+---
+
+## 🖥️ Instalación y uso
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/tuusuario/recomendador-local.git
+cd recomendador-local
+
+# Crear entorno virtual (opcional)
+python -m venv env
+source env/bin/activate   # Linux/macOS
+env\Scripts\activate      # Windows
+
+# Instalar dependencias
+pip install -r requirements.txt
+```
+
+### Ejecutar el servidor Flask
+
+```bash
+python main.py
+```
+
+El servidor quedará disponible en:  
+👉 `http://127.0.0.1:5000`
+
+---
+
+## 📡 API Flask – Endpoints
+
+### 🔍 `POST /recomendar`
+
+Genera recomendaciones cruzadas de medios.
+
+**Body JSON:**
+```json
+{
+  "query": "El señor de los anillos",
+  "tipo_origen": "pelicula",
+  "tipo_destino": "todos",
+  "top_k": 5
+}
+```
+
+**Parámetros:**
+- `query` *(str, obligatorio)* → Título de referencia.  
+- `tipo_origen` *(str, opcional, default="pelicula")* → Tipo del contenido base (`pelicula`, `serie`, `libro`, `videojuego`).  
+- `tipo_destino` *(str|list, opcional, default="pelicula")* → Tipo de los resultados (`pelicula`, `serie`, `libro`, `videojuego`, `"todos"`).  
+- `top_k` *(int, opcional, default=5)* → Número máximo de resultados.  
+
+**Ejemplo con `curl`:**
+```bash
+curl -X POST http://127.0.0.1:5000/recomendar      -H "Content-Type: application/json"      -d '{"query": "El señor de los anillos", "tipo_origen": "pelicula", "tipo_destino": "todos"}'
+```
+
+**Respuesta (ejemplo simplificado):**
+```json
+{
+  "combinadas": [
+    {
+      "titulo": "The Hobbit",
+      "tipo": "libro",
+      "descripcion": "...",
+      "poster": "https://...",
+      "puntuacion": 8.9,
+      "generos": ["fantasy", "adventure"]
+    },
+    {
+      "titulo": "Game of Thrones",
+      "tipo": "serie",
+      "descripcion": "...",
+      "poster": "https://...",
+      "puntuacion": 9.1,
+      "generos": ["fantasy", "drama"]
+    }
+  ]
+}
+```
+
+---
+
+## 📊 Evaluación de calidad
+
+### En pruebas internas:  
+Categoría Criterio de evaluación Nº de casos Porcentaje
+🟢 Buenas Más del 70% de recomendaciones coherentes 182 **86,26%**
+🟡 Regulares Entre 30% y 70% de recomendaciones coherentes 23 **10,90%**
+🔴 Malas Menos del 30% de recomendaciones coherentes 6 **2,84%**
+
+Esto valida la **robustez del sistema semántico**, aunque aún hay margen de mejora en enriquecimiento de metadatos.
+
+---
+
+## 🔮 Posibles mejoras futuras
+
+- Base de datos persistente (MongoDB, PostgreSQL).  
+- Frontend visual interactivo (Astro + TailwindCSS + React).  
+- Panel de administración para gestión de fuentes externas.  
+- Autenticación y perfiles de usuario.  
+- Métricas automáticas de evaluación (Precision, Recall, NDCG).  
+- Sistema híbrido (contenido + colaborativo).  
+
+---
+
+## 👤 Autor
+
+**Tu Nombre**  
+📌 [LinkedIn](#)  
+🌐 [Portfolio](#)  
+✉️ tuemail@correo.com  
