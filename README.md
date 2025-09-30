@@ -55,11 +55,16 @@ python "local.py"
 <img width="1002" height="234" alt="Captura de pantalla 2025-09-30 221346" src="https://github.com/user-attachments/assets/6d3c7753-ed86-430c-a7eb-87f2b7daab54" />
 
 
+
 A continuación abrir otra terminal y ejecutar:
 
 ```
 python "request.py"
 ```
+<img width="1079" height="143" alt="Captura de pantalla 2025-09-30 221613" src="https://github.com/user-attachments/assets/1a757c36-cc07-4c90-8f4c-39eaff3f25d6" />
+
+### Rellenar los datos con el título a elegir y dar a enter una vez estén todos rellenados, el sistema te mostrará las recomendaciones
+<img width="1448" height="811" alt="Captura de pantalla 2025-09-30 221737" src="https://github.com/user-attachments/assets/b9ab7a64-6026-478b-a6e1-15d9e767b46e" />
 
 
 ---
