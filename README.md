@@ -50,13 +50,15 @@ recomendador-local/
 Para ejecutar usar:
 
 ```
-python local.py
+python "local.py"
 ```
+<img width="1002" height="234" alt="Captura de pantalla 2025-09-30 221346" src="https://github.com/user-attachments/assets/6d3c7753-ed86-430c-a7eb-87f2b7daab54" />
+
 
 A continuación abrir otra terminal y ejecutar:
 
 ```
-python request.py
+python "request.py"
 ```
 
 
