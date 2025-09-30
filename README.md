@@ -7,7 +7,7 @@ En la rama **"main"** se encuentra la versión local y en la **"master"** un pro
 En la versión final se rediseñó la lógica y estructura para cumplir con las condiciones de la versión gratuíta de Render, sin la librería **sentences-transform**.
 
 
-> La versión desplegada en servidor, con API pública y frontend interactivo, se encuentra en desarrollo privado. Para poder usarla visitr mi portfolio.  [gcodev.es](https://gcodev.es/)  
+> La versión desplegada en servidor, con API pública y frontend interactivo, se encuentra en desarrollo privado. Para poder usarla visitar mi portfolio.  [gcodev.es](https://gcodev.es/)  
 
 ---
 
