@@ -188,5 +188,4 @@ Esto valida la **robustez del sistema semántico**, aunque aún hay margen de me
 **Gerardo Blázquez Moreno**  
 📌 Portfolio: [gcodev.es](https://gcodev.es/)  
 ✉️ Email: gerardo.blazquez32@gmail.com
-
 🌐 LinkedIn: [linkedin.com/in/gerardoblazquez](https://www.linkedin.com/in/gerardo-bl%C3%A1zquez-moreno-a71551195/)   
