@@ -23,17 +23,8 @@ import concurrent.futures
 from flask_cors import CORS
 
 
-
-
 MODEL_NAME = "all-MiniLM-L6-v2"
 model = SentenceTransformer(MODEL_NAME)
-
-
-
-
-
-
-
 
 
 def eliminar_duplicados(recomendaciones, titulo_origen):
@@ -50,7 +41,7 @@ def eliminar_duplicados(recomendaciones, titulo_origen):
     return filtradas
 
 def buscar_recomendaciones(query, tipo_origen="pelicula", tipo_destino="pelicula", top_k=5, genero=None, intentos=0):
-    print(f"🔍 Buscando en dataset: '{query}' (intento {intentos + 1})")
+    print(f"Buscando en dataset: '{query}' (intento {intentos + 1})")
     titulo_norm = normalizar_titulo(query)
 
     # Normalizar tipo_destino a lista de tipos válidos
@@ -184,7 +175,7 @@ def buscar_recomendaciones(query, tipo_origen="pelicula", tipo_destino="pelicula
                     item_genres = [mapear_genero(g) for g in (new_genres if isinstance(new_genres, list) else [])]
                     item["generos"] = new_genres
             except Exception as e:
-                print(f"⚠️ Error obteniendo géneros por API externa para '{item.get('titulo','')}': {e}")
+                print(f"Error obteniendo géneros por API externa para '{item.get('titulo','')}': {e}")
 
         item_genres = item_genres[:3]
         item_genres_set = set(item_genres)
@@ -231,7 +222,7 @@ def buscar_recomendaciones(query, tipo_origen="pelicula", tipo_destino="pelicula
         genero_compartido = bool(set(item_genres) & set(generos_busqueda)) if generos_busqueda else True
         if generos_busqueda and not genero_compartido:
             if not (palabras_clave and any(pal.lower() in text_descr for pal in palabras_clave)):
-                print(f"⛔ Rechazado por no compartir género ni palabras clave: {titulo}")
+                print(f"Rechazado por no compartir género ni palabras clave: {titulo}")
                 continue
 
         score_modificado = boost_score(score, genero_compartido, generos_busqueda, item_genres)
