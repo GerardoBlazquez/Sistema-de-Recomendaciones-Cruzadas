@@ -71,22 +71,23 @@ flowchart TD
     RECOMENDAR_ENDPOINT -->|Fallo parámetros| ERROR_PARAMS["Error: faltan parámetros"]
     BUSCA_RECOMENDACIONES -->|No hay resultados| ERROR_NO_RESULTS["Error: sin recomendaciones"]
 
-    style INICIO fill:#006dff,color:#fff
-    style LOAD_DATASET fill:#ffcc00,color:#000
-    style LOAD_MODEL fill:#ffaa00,color:#000
-    style START_FLASK fill:#009933,color:#fff
-    style RECOMENDAR_ENDPOINT fill:#004466,stroke:#333,color:#fff
+    %% Estilos con más contraste
+    style INICIO fill:#006dff,color:#ffffff
+    style LOAD_DATASET fill:#ffcc00,color:#000000
+    style LOAD_MODEL fill:#ffaa00,color:#000000
+    style START_FLASK fill:#009933,color:#ffffff
+    style RECOMENDAR_ENDPOINT fill:#004466,stroke:#333,color:#ffffff
 
-    style VALIDA_PARAMS fill:#ff4d4d,color:#fff
-    style BUSCA_RECOMENDACIONES fill:#ffee33,color:#000
-    style DATOS_INDEX fill:#ff9933,color:#000
-    style NORMALIZA_QUERY fill:#ffee33,color:#000
-    style CALC_EMBEDDING fill:#99cc00,color:#000
-    style FAISS_SEARCH fill:#00aaff,color:#000
-    style FILTRA_RESULTADOS fill:#00cc88,color:#000
-    style EXTERNAL_API fill:#7a42f4,color:#fff
-    style FORMATEA_RESPONSE fill:#00cccc,color:#000
-    style RETURN_JSON fill:#3399ff,color:#fff
+    style VALIDA_PARAMS fill:#ff4d4d,color:#ffffff
+    style BUSCA_RECOMENDACIONES fill:#ffee33,color:#000000
+    style DATOS_INDEX fill:#ff9933,color:#000000
+    style NORMALIZA_QUERY fill:#ffee33,color:#000000
+    style CALC_EMBEDDING fill:#99cc00,color:#000000
+    style FAISS_SEARCH fill:#00aaff,color:#000000
+    style FILTRA_RESULTADOS fill:#00cc88,color:#000000
+    style EXTERNAL_API fill:#7a42f4,color:#ffffff
+    style FORMATEA_RESPONSE fill:#00cccc,color:#000000
+    style RETURN_JSON fill:#3399ff,color:#ffffff
 ```
 
 ---
