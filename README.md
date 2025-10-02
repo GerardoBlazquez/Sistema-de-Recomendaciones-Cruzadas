@@ -221,7 +221,8 @@ Categoría Criterio de evaluación Nº de casos Porcentaje
 - Base de datos persistente (MongoDB, PostgreSQL).  
 - Frontend visual interactivo (Astro + TailwindCSS + React).  
 - Panel de administración para gestión de fuentes externas.  
-- Autenticación y perfiles de usuario.  
+- Autenticación y perfiles de usuario.
+- Abrir las categorías a documentales, programas de tv, etc...
 - Sistema híbrido (contenido + colaborativo).  
 
 ---
