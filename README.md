@@ -55,7 +55,7 @@ flowchart TD
     LOAD_MODEL --> START_FLASK
     START_FLASK --> RECOMENDAR_ENDPOINT
 
-    subgraph Flujo_de_recomendacion
+    subgraph "  Flujo_de_recomendacion"
         RECOMENDAR_ENDPOINT --> VALIDA_PARAMS(["Validar parámetros de entrada"])
         VALIDA_PARAMS --> BUSCA_RECOMENDACIONES(["buscar_recomendaciones()"])
         BUSCA_RECOMENDACIONES --> DATOS_INDEX(["Cargar/Crear índice FAISS"])
