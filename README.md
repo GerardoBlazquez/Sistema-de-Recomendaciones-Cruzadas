@@ -42,6 +42,8 @@ En la versión final se rediseñó la lógica y estructura para cumplir con las 
 
 ## 🔷 Flujo
 
+## 🔄 Flujo del programa
+
 ```mermaid
 flowchart TD
     INICIO([Inicio])
@@ -71,22 +73,23 @@ flowchart TD
     RECOMENDAR_ENDPOINT -->|Fallo parámetros| ERROR_PARAMS["Error: faltan parámetros"]
     BUSCA_RECOMENDACIONES -->|No hay resultados| ERROR_NO_RESULTS["Error: sin recomendaciones"]
 
-    style INICIO fill:#c1eaff
-    style LOAD_DATASET fill:#f7dfb2
-    style LOAD_MODEL fill:#f7dfb2
-    style START_FLASK fill:#b2f7c1
-    style RECOMENDAR_ENDPOINT fill:#5eccff,stroke:#333
+    %% Estilos con más contraste
+    style INICIO fill:#006dff,color:#ffffff
+    style LOAD_DATASET fill:#ffcc00,color:#000000
+    style LOAD_MODEL fill:#ffaa00,color:#000000
+    style START_FLASK fill:#009933,color:#ffffff
+    style RECOMENDAR_ENDPOINT fill:#004466,stroke:#333,color:#ffffff
 
-    style VALIDA_PARAMS fill:#ffe6e6
-    style BUSCA_RECOMENDACIONES fill:#fffdb2
-    style DATOS_INDEX fill:#ffe7b2
-    style NORMALIZA_QUERY fill:#fffdb2
-    style CALC_EMBEDDING fill:#dfffb2
-    style FAISS_SEARCH fill:#b2eaff
-    style FILTRA_RESULTADOS fill:#b2ffd4
-    style EXTERNAL_API fill:#e6d6ff
-    style FORMATEA_RESPONSE fill:#d6f7ff
-    style RETURN_JSON fill:#bae1ff
+    style VALIDA_PARAMS fill:#ff4d4d,color:#ffffff
+    style BUSCA_RECOMENDACIONES fill:#ffee33,color:#000000
+    style DATOS_INDEX fill:#ff9933,color:#000000
+    style NORMALIZA_QUERY fill:#ffee33,color:#000000
+    style CALC_EMBEDDING fill:#99cc00,color:#000000
+    style FAISS_SEARCH fill:#00aaff,color:#000000
+    style FILTRA_RESULTADOS fill:#00cc88,color:#000000
+    style EXTERNAL_API fill:#7a42f4,color:#ffffff
+    style FORMATEA_RESPONSE fill:#00cccc,color:#000000
+    style RETURN_JSON fill:#3399ff,color:#ffffff
 ```
 ---
 
