@@ -42,54 +42,51 @@ En la versión final se rediseñó la lógica y estructura para cumplir con las 
 
 ## 🔷 Flujo
 
-```
+```mermaid
 flowchart TD
-    %% Nodos principales
-    INICIO((Inicio))
-    LOAD_DATASET[/"Cargar dataset CSV"/]
-    LOAD_MODEL[/"Cargar modelo de embeddings"/]
-    START_FLASK([Arrancar servidor Flask])
+    INICIO([Inicio])
+    LOAD_DATASET["Cargar dataset CSV"]
+    LOAD_MODEL["Cargar modelo de embeddings"]
+    START_FLASK["Arrancar servidor Flask"]
     RECOMENDAR_ENDPOINT["/recomendar endpoint (POST)"]
 
-    %% Conexiones principales
     INICIO --> LOAD_DATASET
     LOAD_DATASET --> LOAD_MODEL
     LOAD_MODEL --> START_FLASK
     START_FLASK --> RECOMENDAR_ENDPOINT
 
-    %% Flujo interno de recomendación
     subgraph Flujo_de_recomendacion
-        RECOMENDAR_ENDPOINT --> VALIDA_PARAMS{Validar parámetros de entrada}
+        RECOMENDAR_ENDPOINT --> VALIDA_PARAMS["Validar parámetros de entrada"]
         VALIDA_PARAMS --> BUSCA_RECOMENDACIONES["buscar_recomendaciones()"]
-        BUSCA_RECOMENDACIONES --> DATOS_INDEX[/"Cargar/Crear índice FAISS"/]
+        BUSCA_RECOMENDACIONES --> DATOS_INDEX["Cargar/Crear índice FAISS"]
         DATOS_INDEX --> NORMALIZA_QUERY["Normalizar query y extraer géneros"]
         NORMALIZA_QUERY --> CALC_EMBEDDING["Calcular embedding para búsqueda"]
         CALC_EMBEDDING --> FAISS_SEARCH["Buscar aproximada en FAISS"]
         FAISS_SEARCH --> FILTRA_RESULTADOS["Filtrar y enriquecer resultados"]
         FILTRA_RESULTADOS --> EXTERNAL_API["Consulta APIs externas (TMDb, RAWG, Google Books)"]
         EXTERNAL_API --> FORMATEA_RESPONSE["Formatear respuesta"]
-        FORMATEA_RESPONSE --> RETURN_JSON([Retornar JSON al usuario])
+        FORMATEA_RESPONSE --> RETURN_JSON["Retornar JSON al usuario"]
     end
 
-    %% Posibles errores
-    RECOMENDAR_ENDPOINT -->|Fallo parámetros| ERROR_PARAMS([Error: faltan parámetros])
-    BUSCA_RECOMENDACIONES -->|No hay resultados| ERROR_NO_RESULTS([Error: sin recomendaciones])
+    RECOMENDAR_ENDPOINT -->|Fallo parámetros| ERROR_PARAMS["Error: faltan parámetros"]
+    BUSCA_RECOMENDACIONES -->|No hay resultados| ERROR_NO_RESULTS["Error: sin recomendaciones"]
 
-    %% Estilos de nodos por tipo
-    classDef inicioStyle fill:#c1eaff,stroke:#333,stroke-width:2px,color:#000;
-    classDef procesoStyle fill:#f7dfb2,stroke:#666,stroke-width:1px,color:#000;
-    classDef decisionStyle fill:#ffe6e6,stroke:#d33,stroke-width:2px,color:#000,font-weight:bold;
-    classDef apiStyle fill:#e6d6ff,stroke:#556,color:#000;
-    classDef resultadoStyle fill:#bae1ff,stroke:#333,color:#000;
+    style INICIO fill:#c1eaff
+    style LOAD_DATASET fill:#f7dfb2
+    style LOAD_MODEL fill:#f7dfb2
+    style START_FLASK fill:#b2f7c1
+    style RECOMENDAR_ENDPOINT fill:#5eccff,stroke:#333
 
-    class INICIO inicioStyle
-    class LOAD_DATASET,LOAD_MODEL,START_FLASK,BUSCA_RECOMENDACIONES,DATOS_INDEX,NORMALIZA_QUERY,CALC_EMBEDDING,FAISS_SEARCH,FILTRA_RESULTADOS procesoStyle
-    class VALIDA_PARAMS decisionStyle
-    class EXTERNAL_API apiStyle
-    class FORMATEA_RESPONSE,RETURN_JSON resultadoStyle
-    class ERROR_PARAMS,ERROR_NO_RESULTS decisionStyle
-
-```
+    style VALIDA_PARAMS fill:#ffe6e6
+    style BUSCA_RECOMENDACIONES fill:#fffdb2
+    style DATOS_INDEX fill:#ffe7b2
+    style NORMALIZA_QUERY fill:#fffdb2
+    style CALC_EMBEDDING fill:#dfffb2
+    style FAISS_SEARCH fill:#b2eaff
+    style FILTRA_RESULTADOS fill:#b2ffd4
+    style EXTERNAL_API fill:#e6d6ff
+    style FORMATEA_RESPONSE fill:#d6f7ff
+    style RETURN_JSON fill:#bae1ff
 
 ---
 
