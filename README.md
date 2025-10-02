@@ -182,32 +182,31 @@ flowchart TD
 end
 
 classDef titulo fill:#444444,color:#ffffff,stroke:none;
-classDef error fill:#ff0000,color:#ffffff,stroke:#800000;
+classDef error fill:#992222,color:#ffffff,stroke:#661111;
 
 RECOMENDAR_ENDPOINT -->|Fallo parámetros| ERROR_PARAMS["Error: faltan parámetros"]:::error
 BUSCA_RECOMENDACIONES -->|No hay resultados| ERROR_NO_RESULTS["Error: sin recomendaciones"]:::error
 
-%% Estilos con más contraste
-style INICIO fill:#006dff,color:#ffffff
-style LOAD_DATASET fill:#ffcc00,color:#000000
-style LOAD_MODEL fill:#ffaa00,color:#000000
-style START_FLASK fill:#009933,color:#ffffff
-style RECOMENDAR_ENDPOINT fill:#004466,stroke:#333,color:#ffffff
+%% Estilos combinables y suaves
+style INICIO fill:#4a90e2,color:#ffffff
+style LOAD_DATASET fill:#f5a623,color:#000000
+style LOAD_MODEL fill:#f8e71c,color:#000000
+style START_FLASK fill:#7ed321,color:#000000
+style RECOMENDAR_ENDPOINT fill:#50e3c2,stroke:#333,color:#000000
 
-style VALIDA_PARAMS fill:#ff4d4d,color:#ffffff
-style BUSCA_RECOMENDACIONES fill:#ffee33,color:#000000
-style DATOS_INDEX fill:#ff9933,color:#000000
-style NORMALIZA_QUERY fill:#ffee33,color:#000000
-style CALC_EMBEDDING fill:#99cc00,color:#000000
-style FAISS_SEARCH fill:#00aaff,color:#000000
-style FILTRA_RESULTADOS fill:#00cc88,color:#000000
-style EXTERNAL_API fill:#7a42f4,color:#ffffff
-style FORMATEA_RESPONSE fill:#00cccc,color:#000000
-style RETURN_JSON fill:#3399ff,color:#ffffff
+style VALIDA_PARAMS fill:#d0021b,color:#ffffff
+style BUSCA_RECOMENDACIONES fill:#f8e71c,color:#000000
+style DATOS_INDEX fill:#f5a623,color:#000000
+style NORMALIZA_QUERY fill:#f8e71c,color:#000000
+style CALC_EMBEDDING fill:#b8e986,color:#000000
+style FAISS_SEARCH fill:#4a90e2,color:#ffffff
+style FILTRA_RESULTADOS fill:#7ed321,color:#000000
+style EXTERNAL_API fill:#9013fe,color:#ffffff
+style FORMATEA_RESPONSE fill:#50e3c2,color:#000000
+style RETURN_JSON fill:#417505,color:#ffffff
 
 %% Color del subgrafo
 style Flujo_de_recomendacion fill:#1f1f1f,stroke:#222222,color:#ffffff
-
 ```
 
 ---
