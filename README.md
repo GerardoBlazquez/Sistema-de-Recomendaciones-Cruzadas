@@ -45,10 +45,10 @@ En la versión final se rediseñó la lógica y estructura para cumplir con las 
 ```mermaid
 flowchart TD
     INICIO([Inicio])
-    LOAD_DATASET["Cargar dataset CSV"]
-    LOAD_MODEL["Cargar modelo de embeddings"]
-    START_FLASK["Arrancar servidor Flask"]
-    RECOMENDAR_ENDPOINT["/recomendar endpoint (POST)"]
+    LOAD_DATASET(["Cargar dataset CSV"])
+    LOAD_MODEL(["Cargar modelo de embeddings"])
+    START_FLASK(["Arrancar servidor Flask"])
+    RECOMENDAR_ENDPOINT(["/recomendar endpoint (POST)"])
 
     INICIO --> LOAD_DATASET
     LOAD_DATASET --> LOAD_MODEL
@@ -56,16 +56,16 @@ flowchart TD
     START_FLASK --> RECOMENDAR_ENDPOINT
 
     subgraph Flujo_de_recomendacion
-        RECOMENDAR_ENDPOINT --> VALIDA_PARAMS["Validar parámetros de entrada"]
-        VALIDA_PARAMS --> BUSCA_RECOMENDACIONES["buscar_recomendaciones()"]
-        BUSCA_RECOMENDACIONES --> DATOS_INDEX["Cargar/Crear índice FAISS"]
-        DATOS_INDEX --> NORMALIZA_QUERY["Normalizar query y extraer géneros"]
-        NORMALIZA_QUERY --> CALC_EMBEDDING["Calcular embedding para búsqueda"]
-        CALC_EMBEDDING --> FAISS_SEARCH["Buscar aproximada en FAISS"]
-        FAISS_SEARCH --> FILTRA_RESULTADOS["Filtrar y enriquecer resultados"]
-        FILTRA_RESULTADOS --> EXTERNAL_API["Consulta APIs externas (TMDb, RAWG, Google Books)"]
-        EXTERNAL_API --> FORMATEA_RESPONSE["Formatear respuesta"]
-        FORMATEA_RESPONSE --> RETURN_JSON["Retornar JSON al usuario"]
+        RECOMENDAR_ENDPOINT --> VALIDA_PARAMS(["Validar parámetros de entrada"])
+        VALIDA_PARAMS --> BUSCA_RECOMENDACIONES(["buscar_recomendaciones()"])
+        BUSCA_RECOMENDACIONES --> DATOS_INDEX(["Cargar/Crear índice FAISS"])
+        DATOS_INDEX --> NORMALIZA_QUERY(["Normalizar query y extraer géneros"])
+        NORMALIZA_QUERY --> CALC_EMBEDDING(["Calcular embedding para búsqueda"])
+        CALC_EMBEDDING --> FAISS_SEARCH(["Buscar aproximada en FAISS"])
+        FAISS_SEARCH --> FILTRA_RESULTADOS(["Filtrar y enriquecer resultados"])
+        FILTRA_RESULTADOS --> EXTERNAL_API(["Consulta APIs externas (TMDb, RAWG, Google Books)"])
+        EXTERNAL_API --> FORMATEA_RESPONSE(["Formatear respuesta"])
+        FORMATEA_RESPONSE --> RETURN_JSON(["Retornar JSON al usuario"])
     end
 
     RECOMENDAR_ENDPOINT -->|Fallo parámetros| ERROR_PARAMS["Error: faltan parámetros"]
