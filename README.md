@@ -87,7 +87,7 @@ flowchart TD
     style EXTERNAL_API fill:#e6d6ff
     style FORMATEA_RESPONSE fill:#d6f7ff
     style RETURN_JSON fill:#bae1ff
-
+```
 ---
 
 ## 🔷 Estructura del proyecto
