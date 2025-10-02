@@ -234,3 +234,31 @@ Categoría Criterio de evaluación Nº de casos Porcentaje
 📌 Portfolio: [gcodev.es](https://gcodev.es/)  
 ✉️ Email: gerardo.blazquez32@gmail.com
 🌐 LinkedIn: [linkedin.com/in/gerardoblazquez](https://www.linkedin.com/in/gerardo-bl%C3%A1zquez-moreno-a71551195/)   
+
+---
+
+flowchart TD
+    A[Inicio] --> B[Cargar dataset CSV]
+    B --> C[Cargar modelo SentenceTransformer]
+    C --> D{¿Existe índice FAISS?}
+    D -- Sí --> E[Cargar índice y metadatos]
+    D -- No --> F[Crear embeddings y FAISS index]
+    E --> G[Esperar consultas]
+    F --> G[Esperar consultas]
+
+    subgraph API Flask
+        G --> H[Recibir consulta de recomendación]
+        H --> I[Normalizar título y tipo destino]
+        I --> J{¿Un solo tipo o varios?}
+        J -- Varios --> K[Ejecutar búsquedas en paralelo con ThreadPoolExecutor]
+        J -- Uno --> L[Buscar en FAISS index]
+        K --> M[Unir y ordenar recomendaciones]
+        L --> M[Filtrar duplicados y ordenar]
+        M --> N{¿Faltan datos?}
+        N -- Sí --> O[Llamar APIs externas (TMDb, Google Books, RAWG)]
+        N -- No --> P[Devolver recomendaciones]
+        O --> P[Devolver recomendaciones enriquecidas]
+    end
+
+    P --> Q[Respuesta JSON al cliente]
+    Q --> R[Fin]
