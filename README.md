@@ -90,7 +90,7 @@ flowchart TD
     style RETURN_JSON fill:#3399ff,color:#ffffff
 
     %% Color del subgrafo
-    style Flujo_de_recomendacion fill:#444444,stroke:#222222,color:#1f1f1f
+    style Flujo_de_recomendacion fill:#1f1f1f,stroke:#222222,color:#1f1f1f
 ```
 
 ---
