@@ -40,73 +40,6 @@ En la versión final se rediseñó la lógica y estructura para cumplir con las 
 
 ---
 
-## 🔷 Flujo
-
-```mermaid
-flowchart TD
-    INICIO([Inicio])
-    LOAD_DATASET(["Cargar dataset CSV"])
-    LOAD_MODEL(["Cargar modelo de embeddings"])
-    START_FLASK(["Arrancar servidor Flask"])
-    RECOMENDAR_ENDPOINT(["/recomendar endpoint (POST)"])
-
-    INICIO --> LOAD_DATASET
-    LOAD_DATASET --> LOAD_MODEL
-    LOAD_MODEL --> START_FLASK
-    START_FLASK --> RECOMENDAR_ENDPOINT
-
-
-  subgraph Flujo_de_recomendacion[" "]
-    %% Nodo título
-    TITULO(["Flujo de recomendación"]):::titulo
-
-    %% Conexión fantasma para fijar TITULO arriba
-    TITULO --> VALIDA_PARAMS
-
-    %% Flujo real
-    RECOMENDAR_ENDPOINT --> VALIDA_PARAMS(["Validar parámetros de entrada"])
-    VALIDA_PARAMS --> BUSCA_RECOMENDACIONES(["buscar_recomendaciones()"])
-    BUSCA_RECOMENDACIONES --> DATOS_INDEX(["Cargar/Crear índice FAISS"])
-    DATOS_INDEX --> NORMALIZA_QUERY(["Normalizar query y extraer géneros"])
-    NORMALIZA_QUERY --> CALC_EMBEDDING(["Calcular embedding para búsqueda"])
-    CALC_EMBEDDING --> FAISS_SEARCH(["Buscar aproximada en FAISS"])
-    FAISS_SEARCH --> FILTRA_RESULTADOS(["Filtrar y enriquecer resultados"])
-    FILTRA_RESULTADOS --> EXTERNAL_API(["Consulta APIs externas (TMDb, RAWG, Google Books)"])
-    EXTERNAL_API --> FORMATEA_RESPONSE(["Formatear respuesta"])
-    FORMATEA_RESPONSE --> RETURN_JSON(["Retornar JSON al usuario"])
-end
-
-classDef titulo fill:#444444,color:#ffffff,stroke:none;
-classDef error fill:#ff0000,color:#ffffff,stroke:#800000;
-
-RECOMENDAR_ENDPOINT -->|Fallo parámetros| ERROR_PARAMS["Error: faltan parámetros"]:::error
-BUSCA_RECOMENDACIONES -->|No hay resultados| ERROR_NO_RESULTS["Error: sin recomendaciones"]:::error
-
-%% Estilos con más contraste
-style INICIO fill:#006dff,color:#ffffff
-style LOAD_DATASET fill:#ffcc00,color:#000000
-style LOAD_MODEL fill:#ffaa00,color:#000000
-style START_FLASK fill:#009933,color:#ffffff
-style RECOMENDAR_ENDPOINT fill:#004466,stroke:#333,color:#ffffff
-
-style VALIDA_PARAMS fill:#ff4d4d,color:#ffffff
-style BUSCA_RECOMENDACIONES fill:#ffee33,color:#000000
-style DATOS_INDEX fill:#ff9933,color:#000000
-style NORMALIZA_QUERY fill:#ffee33,color:#000000
-style CALC_EMBEDDING fill:#99cc00,color:#000000
-style FAISS_SEARCH fill:#00aaff,color:#000000
-style FILTRA_RESULTADOS fill:#00cc88,color:#000000
-style EXTERNAL_API fill:#7a42f4,color:#ffffff
-style FORMATEA_RESPONSE fill:#00cccc,color:#000000
-style RETURN_JSON fill:#3399ff,color:#ffffff
-
-%% Color del subgrafo
-style Flujo_de_recomendacion fill:#1f1f1f,stroke:#222222,color:#ffffff
-
-```
-
----
-
 ## 🔷 Estructura del proyecto
 
 ### Versión local 
@@ -209,6 +142,73 @@ python "main.py"
 
 El servidor quedará disponible en:  
  `http://127.0.0.1:5000`
+
+---
+
+## 🔷 Flujo
+
+```mermaid
+flowchart TD
+    INICIO([Inicio])
+    LOAD_DATASET(["Cargar dataset CSV"])
+    LOAD_MODEL(["Cargar modelo de embeddings"])
+    START_FLASK(["Arrancar servidor Flask"])
+    RECOMENDAR_ENDPOINT(["/recomendar endpoint (POST)"])
+
+    INICIO --> LOAD_DATASET
+    LOAD_DATASET --> LOAD_MODEL
+    LOAD_MODEL --> START_FLASK
+    START_FLASK --> RECOMENDAR_ENDPOINT
+
+
+  subgraph Flujo_de_recomendacion[" "]
+    %% Nodo título
+    TITULO(["Flujo de recomendación"]):::titulo
+
+    %% Conexión fantasma para fijar TITULO arriba
+    TITULO --> VALIDA_PARAMS
+
+    %% Flujo real
+    RECOMENDAR_ENDPOINT --> VALIDA_PARAMS(["Validar parámetros de entrada"])
+    VALIDA_PARAMS --> BUSCA_RECOMENDACIONES(["buscar_recomendaciones()"])
+    BUSCA_RECOMENDACIONES --> DATOS_INDEX(["Cargar/Crear índice FAISS"])
+    DATOS_INDEX --> NORMALIZA_QUERY(["Normalizar query y extraer géneros"])
+    NORMALIZA_QUERY --> CALC_EMBEDDING(["Calcular embedding para búsqueda"])
+    CALC_EMBEDDING --> FAISS_SEARCH(["Buscar aproximada en FAISS"])
+    FAISS_SEARCH --> FILTRA_RESULTADOS(["Filtrar y enriquecer resultados"])
+    FILTRA_RESULTADOS --> EXTERNAL_API(["Consulta APIs externas (TMDb, RAWG, Google Books)"])
+    EXTERNAL_API --> FORMATEA_RESPONSE(["Formatear respuesta"])
+    FORMATEA_RESPONSE --> RETURN_JSON(["Retornar JSON al usuario"])
+end
+
+classDef titulo fill:#444444,color:#ffffff,stroke:none;
+classDef error fill:#ff0000,color:#ffffff,stroke:#800000;
+
+RECOMENDAR_ENDPOINT -->|Fallo parámetros| ERROR_PARAMS["Error: faltan parámetros"]:::error
+BUSCA_RECOMENDACIONES -->|No hay resultados| ERROR_NO_RESULTS["Error: sin recomendaciones"]:::error
+
+%% Estilos con más contraste
+style INICIO fill:#006dff,color:#ffffff
+style LOAD_DATASET fill:#ffcc00,color:#000000
+style LOAD_MODEL fill:#ffaa00,color:#000000
+style START_FLASK fill:#009933,color:#ffffff
+style RECOMENDAR_ENDPOINT fill:#004466,stroke:#333,color:#ffffff
+
+style VALIDA_PARAMS fill:#ff4d4d,color:#ffffff
+style BUSCA_RECOMENDACIONES fill:#ffee33,color:#000000
+style DATOS_INDEX fill:#ff9933,color:#000000
+style NORMALIZA_QUERY fill:#ffee33,color:#000000
+style CALC_EMBEDDING fill:#99cc00,color:#000000
+style FAISS_SEARCH fill:#00aaff,color:#000000
+style FILTRA_RESULTADOS fill:#00cc88,color:#000000
+style EXTERNAL_API fill:#7a42f4,color:#ffffff
+style FORMATEA_RESPONSE fill:#00cccc,color:#000000
+style RETURN_JSON fill:#3399ff,color:#ffffff
+
+%% Color del subgrafo
+style Flujo_de_recomendacion fill:#1f1f1f,stroke:#222222,color:#ffffff
+
+```
 
 ---
 
