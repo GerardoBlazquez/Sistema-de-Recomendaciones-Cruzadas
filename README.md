@@ -43,12 +43,6 @@ En la versión final se rediseñó la lógica y estructura para cumplir con las 
 ## 🔷 Flujo
 
 ```mermaid
-%%{init: {"theme": "default", "themeVariables": {
-    "primaryColor": "#006dff",
-    "edgeLabelBackground":"#ffffff",
-    "tertiaryColor":"#ffffff"
-}}}%%
-
 flowchart TD
     INICIO([Inicio])
     LOAD_DATASET["Cargar dataset CSV"]
@@ -77,75 +71,22 @@ flowchart TD
     RECOMENDAR_ENDPOINT -->|Fallo parámetros| ERROR_PARAMS["Error: faltan parámetros"]
     BUSCA_RECOMENDACIONES -->|No hay resultados| ERROR_NO_RESULTS["Error: sin recomendaciones"]
 
-    %% Definición de degradados
-    classDef start fill:url(#gradBlue),color:#fff,stroke:#004080;
-    classDef dataset fill:url(#gradYellow),color:#000,stroke:#996600;
-    classDef model fill:url(#gradOrange),color:#000,stroke:#994d00;
-    classDef server fill:url(#gradGreen),color:#fff,stroke:#004d00;
-    classDef endpoint fill:url(#gradDark),color:#fff,stroke:#222;
-    classDef error fill:url(#gradRed),color:#fff,stroke:#800000;
-    classDef process fill:url(#gradCyan),color:#000,stroke:#004d4d;
-    classDef enrich fill:url(#gradPurple),color:#fff,stroke:#330066;
+    style INICIO fill:#006dff,color:#fff
+    style LOAD_DATASET fill:#ffcc00,color:#000
+    style LOAD_MODEL fill:#ffaa00,color:#000
+    style START_FLASK fill:#009933,color:#fff
+    style RECOMENDAR_ENDPOINT fill:#004466,stroke:#333,color:#fff
 
-    %% Asignación de estilos a nodos
-    class INICIO start;
-    class LOAD_DATASET dataset;
-    class LOAD_MODEL model;
-    class START_FLASK server;
-    class RECOMENDAR_ENDPOINT endpoint;
-
-    class VALIDA_PARAMS error;
-    class BUSCA_RECOMENDACIONES dataset;
-    class DATOS_INDEX model;
-    class NORMALIZA_QUERY dataset;
-    class CALC_EMBEDDING server;
-    class FAISS_SEARCH process;
-    class FILTRA_RESULTADOS server;
-    class EXTERNAL_API enrich;
-    class FORMATEA_RESPONSE process;
-    class RETURN_JSON start;
-
-    class ERROR_PARAMS error;
-    class ERROR_NO_RESULTS error;
-
-    %% Definición SVG de degradados
-    %% Esto se renderiza dentro del diagrama Mermaid
-    %% OJO: funciona en GitHub porque renderiza SVG interno
-    %% Cada id se vincula con "fill:url(#id)"
-    <defs>
-      <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#006dff;stop-opacity:1"/>
-        <stop offset="100%" style="stop-color:#00c6ff;stop-opacity:1"/>
-      </linearGradient>
-      <linearGradient id="gradYellow" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#ffcc00;stop-opacity:1"/>
-        <stop offset="100%" style="stop-color:#ffee66;stop-opacity:1"/>
-      </linearGradient>
-      <linearGradient id="gradOrange" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#ff8800;stop-opacity:1"/>
-        <stop offset="100%" style="stop-color:#ffcc66;stop-opacity:1"/>
-      </linearGradient>
-      <linearGradient id="gradGreen" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#00aa44;stop-opacity:1"/>
-        <stop offset="100%" style="stop-color:#66ff99;stop-opacity:1"/>
-      </linearGradient>
-      <linearGradient id="gradDark" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#003366;stop-opacity:1"/>
-        <stop offset="100%" style="stop-color:#3399cc;stop-opacity:1"/>
-      </linearGradient>
-      <linearGradient id="gradRed" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#cc0000;stop-opacity:1"/>
-        <stop offset="100%" style="stop-color:#ff6666;stop-opacity:1"/>
-      </linearGradient>
-      <linearGradient id="gradCyan" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#00cccc;stop-opacity:1"/>
-        <stop offset="100%" style="stop-color:#66ffff;stop-opacity:1"/>
-      </linearGradient>
-      <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#7a42f4;stop-opacity:1"/>
-        <stop offset="100%" style="stop-color:#cc99ff;stop-opacity:1"/>
-      </linearGradient>
-    </defs>
+    style VALIDA_PARAMS fill:#ff4d4d,color:#fff
+    style BUSCA_RECOMENDACIONES fill:#ffee33,color:#000
+    style DATOS_INDEX fill:#ff9933,color:#000
+    style NORMALIZA_QUERY fill:#ffee33,color:#000
+    style CALC_EMBEDDING fill:#99cc00,color:#000
+    style FAISS_SEARCH fill:#00aaff,color:#000
+    style FILTRA_RESULTADOS fill:#00cc88,color:#000
+    style EXTERNAL_API fill:#7a42f4,color:#fff
+    style FORMATEA_RESPONSE fill:#00cccc,color:#000
+    style RETURN_JSON fill:#3399ff,color:#fff
 ```
 
 ---
