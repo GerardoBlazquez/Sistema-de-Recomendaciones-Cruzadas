@@ -55,18 +55,22 @@ flowchart TD
     LOAD_MODEL --> START_FLASK
     START_FLASK --> RECOMENDAR_ENDPOINT
 
-    subgraph "            Flujo_de_recomendacion"
-        RECOMENDAR_ENDPOINT --> VALIDA_PARAMS(["Validar parámetros de entrada"])
-        VALIDA_PARAMS --> BUSCA_RECOMENDACIONES(["buscar_recomendaciones()"])
-        BUSCA_RECOMENDACIONES --> DATOS_INDEX(["Cargar/Crear índice FAISS"])
-        DATOS_INDEX --> NORMALIZA_QUERY(["Normalizar query y extraer géneros"])
-        NORMALIZA_QUERY --> CALC_EMBEDDING(["Calcular embedding para búsqueda"])
-        CALC_EMBEDDING --> FAISS_SEARCH(["Buscar aproximada en FAISS"])
-        FAISS_SEARCH --> FILTRA_RESULTADOS(["Filtrar y enriquecer resultados"])
-        FILTRA_RESULTADOS --> EXTERNAL_API(["Consulta APIs externas (TMDb, RAWG, Google Books)"])
-        EXTERNAL_API --> FORMATEA_RESPONSE(["Formatear respuesta"])
-        FORMATEA_RESPONSE --> RETURN_JSON(["Retornar JSON al usuario"])
-    end
+   subgraph Flujo_de_recomendacion[" "]
+    TITULO(["Flujo de recomendación"]):::titulo
+
+    RECOMENDAR_ENDPOINT --> VALIDA_PARAMS(["Validar parámetros de entrada"])
+    VALIDA_PARAMS --> BUSCA_RECOMENDACIONES(["buscar_recomendaciones()"])
+    BUSCA_RECOMENDACIONES --> DATOS_INDEX(["Cargar/Crear índice FAISS"])
+    DATOS_INDEX --> NORMALIZA_QUERY(["Normalizar query y extraer géneros"])
+    NORMALIZA_QUERY --> CALC_EMBEDDING(["Calcular embedding para búsqueda"])
+    CALC_EMBEDDING --> FAISS_SEARCH(["Buscar aproximada en FAISS"])
+    FAISS_SEARCH --> FILTRA_RESULTADOS(["Filtrar y enriquecer resultados"])
+    FILTRA_RESULTADOS --> EXTERNAL_API(["Consulta APIs externas (TMDb, RAWG, Google Books)"])
+    EXTERNAL_API --> FORMATEA_RESPONSE(["Formatear respuesta"])
+    FORMATEA_RESPONSE --> RETURN_JSON(["Retornar JSON al usuario"])
+end
+
+classDef titulo fill:#444444,color:#ffffff,stroke:none;
 
     RECOMENDAR_ENDPOINT -->|Fallo parámetros| ERROR_PARAMS["Error: faltan parámetros"]
     BUSCA_RECOMENDACIONES -->|No hay resultados| ERROR_NO_RESULTS["Error: sin recomendaciones"]
