@@ -149,11 +149,11 @@ El servidor quedará disponible en:
 
 ```mermaid
 flowchart TD
-    INICIO([Inicio])
+    INICIO(["`**Inicio**`"])
     LOAD_DATASET(["Cargar dataset CSV"])
     LOAD_MODEL(["Cargar modelo de embeddings"])
     START_FLASK(["Arrancar servidor Flask"])
-    RECOMENDAR_ENDPOINT(["/recomendar endpoint (POST)"])
+    RECOMENDAR_ENDPOINT(["`**/recomendar endpoint (POST)**`"])
 
     INICIO --> LOAD_DATASET
     LOAD_DATASET --> LOAD_MODEL
@@ -161,9 +161,9 @@ flowchart TD
     START_FLASK --> RECOMENDAR_ENDPOINT
 
 
-  subgraph Flujo_de_recomendacion[" "]
+  subgraph Flujo_de_recomendacion["`**Flujo de recomendación**`"]
     %% Nodo título
-    TITULO(["Flujo de recomendación"]):::titulo
+    TITULO(["`**Flujo de recomendación**`"]):::titulo
 
     %% Conexión fantasma para fijar TITULO arriba
     TITULO --> VALIDA_PARAMS
@@ -178,11 +178,11 @@ flowchart TD
     FAISS_SEARCH --> FILTRA_RESULTADOS(["Filtrar y enriquecer resultados"])
     FILTRA_RESULTADOS --> EXTERNAL_API(["Consulta APIs externas (TMDb, RAWG, Google Books)"])
     EXTERNAL_API --> FORMATEA_RESPONSE(["Formatear respuesta"])
-    FORMATEA_RESPONSE --> RETURN_JSON(["Retornar JSON al usuario"])
+    FORMATEA_RESPONSE --> RETURN_JSON(["`**Retornar JSON al usuario**`"])
 end
 
 classDef titulo fill:#585858,color:#f0f0f0,stroke:none;
-classDef error fill:#992222,color:#ffffff,stroke:#661111;
+classDef error fill:#d98c8c,color:#6b2c2c,stroke:#a25757;
 
 RECOMENDAR_ENDPOINT -->|Fallo parámetros| ERROR_PARAMS["Error: faltan parámetros"]:::error
 BUSCA_RECOMENDACIONES -->|No hay resultados| ERROR_NO_RESULTS["Error: sin recomendaciones"]:::error
@@ -207,6 +207,7 @@ style RETURN_JSON fill:#688654,color:#f0f0f0
 
 %% Color del subgrafo
 style Flujo_de_recomendacion fill:#292929,stroke:#444444,color:#dcdcdc
+
 ```
 
 ---
