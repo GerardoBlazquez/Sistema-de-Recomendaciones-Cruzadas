@@ -181,32 +181,32 @@ flowchart TD
     FORMATEA_RESPONSE --> RETURN_JSON(["Retornar JSON al usuario"])
 end
 
-classDef titulo fill:#444444,color:#ffffff,stroke:none;
-classDef error fill:#992222,color:#ffffff,stroke:#661111;
+classDef titulo fill:#585858,color:#f0f0f0,stroke:none;
+classDef error fill:#d98c8c,color:#6b2c2c,stroke:#a25757;
 
 RECOMENDAR_ENDPOINT -->|Fallo parámetros| ERROR_PARAMS["Error: faltan parámetros"]:::error
 BUSCA_RECOMENDACIONES -->|No hay resultados| ERROR_NO_RESULTS["Error: sin recomendaciones"]:::error
 
-%% Estilos combinables y suaves
-style INICIO fill:#4a90e2,color:#ffffff
-style LOAD_DATASET fill:#f5a623,color:#000000
-style LOAD_MODEL fill:#f8e71c,color:#000000
-style START_FLASK fill:#7ed321,color:#000000
-style RECOMENDAR_ENDPOINT fill:#50e3c2,stroke:#333,color:#000000
+%% Estilos con colores pastel suavizados
+style INICIO fill:#a3c1f7,color:#1f1f1f
+style LOAD_DATASET fill:#f7d3a3,color:#1f1f1f
+style LOAD_MODEL fill:#f7efb3,color:#1f1f1f
+style START_FLASK fill:#b8dbb8,color:#1f1f1f
+style RECOMENDAR_ENDPOINT fill:#a2ddd4,stroke:#555555,color:#1f1f1f
 
-style VALIDA_PARAMS fill:#d0021b,color:#ffffff
-style BUSCA_RECOMENDACIONES fill:#f8e71c,color:#000000
-style DATOS_INDEX fill:#f5a623,color:#000000
-style NORMALIZA_QUERY fill:#f8e71c,color:#000000
-style CALC_EMBEDDING fill:#b8e986,color:#000000
-style FAISS_SEARCH fill:#4a90e2,color:#ffffff
-style FILTRA_RESULTADOS fill:#7ed321,color:#000000
-style EXTERNAL_API fill:#9013fe,color:#ffffff
-style FORMATEA_RESPONSE fill:#50e3c2,color:#000000
-style RETURN_JSON fill:#417505,color:#ffffff
+style VALIDA_PARAMS fill:#d9787a,color:#3f1c1e
+style BUSCA_RECOMENDACIONES fill:#f7efb3,color:#1f1f1f
+style DATOS_INDEX fill:#f7d3a3,color:#1f1f1f
+style NORMALIZA_QUERY fill:#f7efb3,color:#1f1f1f
+style CALC_EMBEDDING fill:#c9e4a1,color:#1f1f1f
+style FAISS_SEARCH fill:#a3c1f7,color:#1f1f1f
+style FILTRA_RESULTADOS fill:#b8dbb8,color:#1f1f1f
+style EXTERNAL_API fill:#c7a2f7,color:#1f1f1f
+style FORMATEA_RESPONSE fill:#a2ddd4,color:#1f1f1f
+style RETURN_JSON fill:#688654,color:#f0f0f0
 
 %% Color del subgrafo
-style Flujo_de_recomendacion fill:#1f1f1f,stroke:#222222,color:#ffffff
+style Flujo_de_recomendacion fill:#292929,stroke:#444444,color:#dcdcdc
 ```
 
 ---
