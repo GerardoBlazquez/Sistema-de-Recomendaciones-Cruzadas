@@ -184,8 +184,8 @@ end
 classDef titulo fill:#585858,color:#f0f0f0,stroke:none;
 classDef error fill:#d98c8c,color:#6b2c2c,stroke:#a25757;
 
-RECOMENDAR_ENDPOINT -->|Fallo parámetros| ERROR_PARAMS["`**Error: faltan parámetros**`"]:::error
-BUSCA_RECOMENDACIONES -->|No hay resultados| ERROR_NO_RESULTS["`**Error: sin recomendaciones**`"]:::error
+RECOMENDAR_ENDPOINT -->|Fallo parámetros| ERROR_PARAMS["Error: faltan parámetros"]:::error
+BUSCA_RECOMENDACIONES -->|No hay resultados| ERROR_NO_RESULTS["Error: sin recomendaciones"]:::error
 
 %% Estilos con colores pastel suavizados
 style INICIO fill:#a3c1f7,color:#1f1f1f
