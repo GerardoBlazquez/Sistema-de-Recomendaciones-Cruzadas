@@ -88,6 +88,9 @@ flowchart TD
     style EXTERNAL_API fill:#7a42f4,color:#ffffff
     style FORMATEA_RESPONSE fill:#00cccc,color:#000000
     style RETURN_JSON fill:#3399ff,color:#ffffff
+
+    %% Color del subgrafo
+    style Flujo_de_recomendacion fill:#444444,stroke:#222222,color:#ffffff
 ```
 
 ---
