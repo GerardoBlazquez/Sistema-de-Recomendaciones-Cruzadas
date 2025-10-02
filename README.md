@@ -42,10 +42,6 @@ En la versión final se rediseñó la lógica y estructura para cumplir con las 
 
 ## 🔷 Flujo
 
-## 🔄 Flujo del programa
-
-## 🔄 Flujo del programa con degradados
-
 ```mermaid
 %%{init: {"theme": "default", "themeVariables": {
     "primaryColor": "#006dff",
@@ -150,6 +146,8 @@ flowchart TD
         <stop offset="100%" style="stop-color:#cc99ff;stop-opacity:1"/>
       </linearGradient>
     </defs>
+```
+
 ---
 
 ## 🔷 Estructura del proyecto
