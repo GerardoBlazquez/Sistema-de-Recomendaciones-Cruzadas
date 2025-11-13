@@ -272,11 +272,11 @@ curl -X POST http://127.0.0.1:5000/recomendar
 ### En pruebas internas:  
 Categoría Criterio de evaluación Nº de casos Porcentaje
 
-🟢 Buenas más del 70% de recomendaciones coherentes 182 -> **86,26%**
+🟢 Buenas más del 70% de recomendaciones coherentes 182: -> **86,26%**
 
-🟡 Regulares entre 30% y 70% de recomendaciones coherentes 23 -> **10,90%**
+🟡 Regulares entre 30% y 70% de recomendaciones coherentes 23: -> **10,90%**
 
-🔴 Malas menos del 30% de recomendaciones coherentes 6 -> **2,84%**
+🔴 Malas menos del 30% de recomendaciones coherentes 6: -> **2,84%**
 
 
 > Esto valida la **robustez del sistema semántico**, aunque aún hay margen de mejora en enriquecimiento de metadatos.
