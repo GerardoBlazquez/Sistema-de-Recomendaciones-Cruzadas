@@ -11,6 +11,13 @@ En la versión final se rediseñó la lógica y estructura para cumplir con las 
 
 > La versión desplegada en servidor, con API pública y frontend interactivo, se encuentra en desarrollo privado. Para poder usarla visitar mi portfolio.  [gcodev.es](https://gcodev.es/)  
 
+<div align="center">
+  
+![Demo](images/Recomendador_imagen_muestra.png)
+*Ejemplo: Pizza detectada + 285kcal/100g*
+
+</div>
+
 ---
 
 ## 🔷 Tecnologías utilizadas
