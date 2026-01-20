@@ -13,10 +13,9 @@ En la versión final se rediseñó la lógica y estructura para cumplir con las 
 
 <div align="center">
   
-![Demo UI](https://raw.githubusercontent.com/GerardoBlazquez/https://github.com/GerardoBlazquez/Sistema-de-Recomendaciones-Cruzadas/main/images/recomendador_imagen_muestra.png)
+![Demo UI](https://raw.githubusercontent.com/GerardoBlazquez/Sistema-de-Recomendaciones-Cruzadas/main/images/recomendador_imagen_muestra.png)
   
 *Sistema multimodal: películas, series, libros y videojuegos*
-*Ejemplo: Demostraciión de la UI actual*
 
 </div>
 
