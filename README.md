@@ -216,6 +216,24 @@ style RETURN_JSON fill:#688654,color:#f0f0f0
 %% Color del subgrafo
 style Flujo_de_recomendacion fill:#292929,stroke:#444444,color:#dcdcdc
 
+
+erDiagram
+    %% BASE DE DATOS SIN NORMALIZAR (CAÓTICA)
+    subgraph "❌ Sin Normalizar (Una sola tabla)"
+        PEDIDOS_MAL[Pedidos<br/>• ID_Pedido<br/>• Nombre_Cliente<br/>• Direccion_Cliente<br/>• Ciudad_Cliente<br/>• Producto_1<br/>• Producto_2<br/>• Producto_3]
+    end
+
+    %% BASE DE DATOS NORMALIZADA (ORGANIZADA)
+    subgraph "✅ Normalizada (3FN)"
+        CLIENTES[Clientes<br/>• ID_Cliente (PK)<br/>• Nombre<br/>• Direccion<br/>• Ciudad]
+        PEDIDOS[Pedidos<br/>• ID_Pedido (PK)<br/>• ID_Cliente (FK)<br/>• Fecha]
+        DETALLES[Detalles_Pedido<br/>• ID_Detalle (PK)<br/>• ID_Pedido (FK)<br/>• ID_Producto (FK)<br/>• Cantidad]
+        PRODUCTOS[Productos<br/>• ID_Producto (PK)<br/>• Nombre<br/>• Precio]
+
+        CLIENTES ||--o{ PEDIDOS : "realiza"
+        PEDIDOS ||--|{ DETALLES : "contiene"
+        PRODUCTOS ||--o{ DETALLES : "incluye"
+    end
 ```
 
 ---
